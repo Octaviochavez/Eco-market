@@ -12,5 +12,17 @@ import jakarta.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Producto {
-    private Integer id_producto;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id_producto;
+    @Column(nullable = false)
+        private String nombre_producto;
+    @Column(nullable = false)
+        private String descri_producto;
+    @Column(nullable = false)
+        private double precio_producto;
+    @Column(nullable = false)
+        private int stock;
+    @Column(nullable = false)
+        private String categoria;
 }

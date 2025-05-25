@@ -8,23 +8,24 @@ import java.util.Date;
 
 import jakarta.persistence.*;
 @Data
-@Table(name = "pedido")
+@Table(name = "resena")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pedido {
+public class Resena {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id_pedido;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_resena;
     @Column(nullable = false)
-        private Date fecha_pedido;
-    @Column(nullable = false)
-        private String estado_pedido;
+        private String rut_usuario;
     
     @ManyToOne
-    @JoinColumn(name = "rut_usuario", referencedColumnName = "run", nullable = false)
-    private Usuario usuario;
-    @OneToOne
     @JoinColumn(name = "id_venta", referencedColumnName = "id_venta", nullable = false)
     private Venta venta;
+    @Column(nullable = false)
+        private String comentario;
+    @Column(nullable = false)
+        private Integer puntuacion;
+    @Column(nullable = false)    
+    private Date fecha_resena;
 }
