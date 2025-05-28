@@ -1,6 +1,8 @@
 package com.eco_market.eco_market.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +24,11 @@ public class Logistica {
     @Column(nullable = false)    
         private String estado;
     @Column(nullable = false)
-        private Date fecha_envio;
-    
-    @OneToOne
-    @JoinColumn(name = "id_venta", referencedColumnName = "id_venta", nullable = false)
-    private Venta venta;
+        private Date fecha_envio;  
+    @ManyToMany
+    @JoinTable(name = "logistica_pedido", 
+               joinColumns = @JoinColumn(name= "id_logistica"), 
+               inverseJoinColumns = @JoinColumn(name = "id_producto")
+    )
+    private List<Producto> productos = new ArrayList<>();
 }

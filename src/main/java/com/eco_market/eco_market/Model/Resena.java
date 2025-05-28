@@ -17,15 +17,15 @@ public class Resena {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_resena;
     @Column(nullable = false)
-        private String rut_usuario;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_venta", referencedColumnName = "id_venta", nullable = false)
-    private Venta venta;
+        private String titulo_resena;
     @Column(nullable = false)
         private String comentario;
-    @Column(nullable = false)
-        private Integer puntuacion;
     @Column(nullable = false)    
     private Date fecha_resena;
+    @OneToOne
+    @JoinColumn(name= "id_resena_producto", referencedColumnName= "id_producto",nullable = false)
+    private Producto producto;
+    @ManyToOne
+    @JoinColumn(name= "id_resena_usuario", referencedColumnName = "id", nullable = false)
+    private Usuario usuario;
 }

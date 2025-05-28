@@ -20,11 +20,11 @@ public class Pedido {
         private Date fecha_pedido;
     @Column(nullable = false)
         private String estado_pedido;
-    
+    @Column(nullable = false)
+        private boolean pagado;
+    @Column(nullable = false)
+        private Integer total_pedido;
     @ManyToOne
     @JoinColumn(name = "rut_usuario", referencedColumnName = "run", nullable = false)
     private Usuario usuario;
-    @OneToOne
-    @JoinColumn(name = "id_venta", referencedColumnName = "id_venta", nullable = false)
-    private Venta venta;
 }

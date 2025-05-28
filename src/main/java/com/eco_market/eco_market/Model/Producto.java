@@ -20,9 +20,12 @@ public class Producto {
     @Column(nullable = false)
         private String descri_producto;
     @Column(nullable = false)
-        private double precio_producto;
-    @Column(nullable = false)
         private int stock;
     @Column(nullable = false)
         private String categoria;
+    @ManyToOne
+    @JoinColumn(name= "id_pedido_usuario", referencedColumnName = "id_pedido", nullable = false)
+    private Pedido pedido;
+
+
 }
